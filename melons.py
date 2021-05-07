@@ -1,5 +1,8 @@
 """Classes for melon orders."""
 import random
+from datetime import date 
+import datetime
+import time
 
 class AbstractMelonOrder():
 
@@ -16,6 +19,9 @@ class AbstractMelonOrder():
 
     def get_base_price(self):
         self.get_total = random.randint(5, 9)
+        
+
+
         return self.get_total
 
     def get_total(self):
@@ -75,7 +81,21 @@ class GovernmentMelonOrder(AbstractMelonOrder):
     def mark_inspection(self, passed):
 
         self.passed_inspection = passed
-    
+
+
+# thisXMas    = datetime.date(2017,12,25)
+
+# thisXMasDay = thisXMas.weekday()              # this will retuen an integer 0-6
+
+
+print(date(2021,5,7).weekday())
+print(date(2021,5,8).weekday())
+print(date(2021,5,9).weekday())
+print("Today's day index: ", date(date.today().year, date.today().month ,date.today().day).weekday()) # this will retuen an integer 0-6
+
+print("Date now : ", time.localtime().tm_year, "/", time.localtime().tm_mon, "/", time.localtime().tm_mday)
+print("Time now : ", time.localtime().tm_hour, ":", time.localtime().tm_min, ":", time.localtime().tm_sec)
+
 order0 = InternationalMelonOrder("watermelon", 9, "AUS")
 print(order0.get_total())
 order0.mark_shipped()
